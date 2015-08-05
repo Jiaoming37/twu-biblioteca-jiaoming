@@ -5,7 +5,11 @@ import java.util.List;
 public class BibliotecaApp {
 
     public static void main(String[] args) {
-        
+        System.out.println(welcome());
+        List<Book> books=listBooks();
+        for(Book book:books){
+            System.out.println(book.getAuthor()+","+book.getYear()+","+book.getPublished());
+        }
     }
 
     public static String welcome() {
