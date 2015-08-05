@@ -13,6 +13,9 @@ public class BibliotecaApp {
     }
 
     public static List<Book> listBooks() {
-        return null;
+        Biblioteca biblioteca=new Biblioteca();
+        List<Book> books=biblioteca.books;
+        return books;
     }
+
 }
