@@ -7,6 +7,6 @@ public class BibliotecaApp {
     }
 
     public static String welcome() {
-        return null;
+        return "Welcome to Biblioteca, it is open to you now!";
     }
 }
