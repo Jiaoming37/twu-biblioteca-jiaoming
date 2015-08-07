@@ -10,7 +10,7 @@ public class BibliotecaApp {
         listWelcomeMessage();
 
         Scanner scanner=new Scanner(System.in);
-
+        listMovies();
         while (true) {
             listMainMeun();
 
@@ -135,6 +135,17 @@ public class BibliotecaApp {
     }
 
     public static List<Movie> listMovies() {
-        return null;
+        List<Movie> movies=biblioteca.getMovies();
+        System.out.println("Bibioteca has movies now as follows:");
+        System.out.println("........................................");
+        System.out.println("movieName"+" || "+"movieYear"+" || "+"movieDirecor"+" ||  "+"movieRate");
+        System.out.println("........................................");
+        for(Movie movie:movies){
+            System.out.println(movie.getName()+"      "+movie.getYear()+"        "+movie.getDirector()+"         "+movie.getRate());
+
+        }
+        System.out.println("........................................");
+        System.out.println();
+        return movies;
     }
 }

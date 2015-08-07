@@ -9,6 +9,7 @@ import java.util.List;
 public class Biblioteca {
     public List<Book> books=new ArrayList<Book>();
     public List<Option> mainMenu=new ArrayList<Option>();
+    public List<Movie> movies=new ArrayList<Movie>();
 
     public Biblioteca(){
         this.addBook("javajava","zhao","2011-12-11");
@@ -20,6 +21,11 @@ public class Biblioteca {
         this.addOption("Checkout Book");
         this.addOption("Return Book");
         this.addOption("Quit");
+
+        this.addMovie("martial","2009-12-25","chengLo","10");
+        this.addMovie("comedies","2015-2-15","qingYao","2");
+        this.addMovie("tragedy","2014-10-05","heJiong","4");
+        this.addMovie("thriller","2015-7-25","jieLun","unrated");
     }
 
     private void addBook(String name,String author,String publishedYear) {
@@ -28,6 +34,15 @@ public class Biblioteca {
         book.setAuthor(author);
         book.setPublishedYear(publishedYear);
         books.add(book);
+    }
+
+    private void addMovie(String name,String year,String director,String rate){
+        Movie movie=new Movie();
+        movie.setName(name);
+        movie.setYear(year);
+        movie.setDirector(director);
+        movie.setRate(rate);
+        movies.add(movie);
     }
 
     private void addOption(String name){
@@ -66,5 +81,13 @@ public class Biblioteca {
 
     public void setMainMenu(List<Option> mainMenu) {
         this.mainMenu = mainMenu;
+    }
+
+    public List<Movie> getMovies() {
+        return movies;
+    }
+
+    public void setMovies(List<Movie> movies) {
+        this.movies = movies;
     }
 }
