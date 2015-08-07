@@ -20,6 +20,7 @@ public class Biblioteca {
         this.addOption("List Books");
         this.addOption("List Movies");
         this.addOption("Checkout Book");
+        this.addOption("Checkout Movie");
         this.addOption("Return Book");
         this.addOption("Quit");
 
@@ -65,6 +66,18 @@ public class Biblioteca {
         List<String> nameList=getBookNameList();
         int index=nameList.indexOf(bookName);
         return index;
+    }
+
+    public Boolean avliableMovie(String movieName){
+        Boolean isAvliabled=false;
+        for(Movie movie:movies){
+            if(movie.getName().equals(movieName)){
+                if(!movie.getCheckouted()){
+                    isAvliabled=true;
+                }
+            }
+        }
+        return isAvliabled;
     }
 
 

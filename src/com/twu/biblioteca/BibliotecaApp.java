@@ -36,6 +36,14 @@ public class BibliotecaApp {
                 checkOutBook(bookName);
                 continue;
             }
+            if(optionName.equals("Checkout Movie")){
+                listMovies();
+                System.out.println("Please enter movieName wanted to be checkouted");
+                Scanner scannerMovie=new Scanner(System.in);
+                String movieName=scannerMovie.nextLine().trim();
+                checkOutMovie(movieName);
+                continue;
+            }
             if(optionName.equals("Return Book")){
                 System.out.println("Please enter bookName wanted to be returned");
                 Scanner scannerBook=new Scanner(System.in);
@@ -154,6 +162,22 @@ public class BibliotecaApp {
     }
 
     public static String checkOutMovie(String movieName) {
-        return null;
+        String successfullMessage="Thank you! Enjoy the movie";
+        String unSuccessfullMessage="That movie is not available.";
+
+        if(biblioteca.avliableMovie(movieName)){
+            for(Movie movie:listMovies()){
+                if(movie.getName().equals(movieName)){
+                    movie.setCheckouted(true);
+                    System.out.println(successfullMessage);
+                    System.out.println();
+                }
+            }
+            return successfullMessage;
+        }else {
+            System.out.println(unSuccessfullMessage);
+            System.out.println();
+            return unSuccessfullMessage;
+        }
     }
 }
