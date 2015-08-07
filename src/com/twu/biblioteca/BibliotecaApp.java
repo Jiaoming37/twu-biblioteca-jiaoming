@@ -49,9 +49,13 @@ public class BibliotecaApp {
         return options;
     }
 
-    public static void chooseOption(String optionName){
+    public static String chooseOption(String optionName){
         if(optionName.equals("List Books")){
             listBooks();
+            return "enjoy";
+        }
+        else{
+            return null;
         }
     }
 
