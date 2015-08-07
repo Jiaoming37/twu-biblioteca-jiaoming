@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ExampleTest {
+public class BibliotecaTest {
 
     @Test
     public void should_return_welcome_words() {
@@ -15,5 +15,10 @@ public class ExampleTest {
     @Test
     public void should_have_some_books(){
         assertNotNull(BibliotecaApp.listBooks());
+    }
+
+    @Test
+    public void should_return_first_option_from_main_menu(){
+        assertEquals("List Books",BibliotecaApp.listMainMeun().get(0));
     }
 }
