@@ -133,4 +133,8 @@ public class BibliotecaApp {
             return unSuccessfullMessage;
         }
     }
+
+    public static List<Movie> listMovies() {
+        return null;
+    }
 }

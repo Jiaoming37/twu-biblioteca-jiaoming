@@ -39,7 +39,12 @@ public class BibliotecaTest {
     public void test_the_return_book_option(){
         Book book=BibliotecaApp.listBooks().get(0);
         book.setCheckOuted(true);
-        assertEquals("Thank you for returning the book.",BibliotecaApp.returnBook(book.getName()));
+        assertEquals("Thank you for returning the book.", BibliotecaApp.returnBook(book.getName()));
         assertEquals("That is not a valid book to return.",BibliotecaApp.returnBook("wrong name"));
+    }
+
+    @Test
+    public void should_have_some_movie(){
+        assertNotNull(BibliotecaApp.listMovies());
     }
 }
