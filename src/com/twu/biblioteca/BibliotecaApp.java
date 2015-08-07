@@ -38,6 +38,12 @@ public class BibliotecaApp {
         return books;
     }
 
+    public static void listValidMessage(){
+        String validMessage="Select a valid option!";
+        System.out.println(validMessage);
+        System.out.println();
+    }
+
     public static List<Option> listMainMeun(){
         Biblioteca biblioteca=new Biblioteca();
         List<Option> options=biblioteca.getMainMenu();
@@ -55,7 +61,8 @@ public class BibliotecaApp {
             return "enjoy";
         }
         else{
-            return null;
+            listValidMessage();
+            return "Select a valid option!";
         }
     }
 
