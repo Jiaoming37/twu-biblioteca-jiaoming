@@ -13,7 +13,12 @@ public class BibliotecaApp {
             listMainMeun();
             System.out.println("Please choose the optionName:");
             String optionName = scanner.nextLine().trim();
-            chooseOption(optionName);
+            if(optionName.equals("Quit")){
+                System.out.println("GoodBye!");
+                break;
+            }else{
+                chooseOption(optionName);
+            }
         }
     }
 
