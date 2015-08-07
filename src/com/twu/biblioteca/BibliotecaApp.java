@@ -31,30 +31,26 @@ public class BibliotecaApp {
             if(optionName.equals("Checkout Book")){
                 listBooks();
                 System.out.println("Please enter bookName wanted to be checkouted");
-                Scanner scannerBook=new Scanner(System.in);
-                String bookName=scannerBook.nextLine().trim();
+                String bookName=scanner.nextLine().trim();
                 checkOutBook(bookName);
                 continue;
             }
             if(optionName.equals("Checkout Movie")){
                 listMovies();
                 System.out.println("Please enter movieName wanted to be checkouted");
-                Scanner scannerMovie=new Scanner(System.in);
-                String movieName=scannerMovie.nextLine().trim();
+                String movieName=scanner.nextLine().trim();
                 checkOutMovie(movieName);
                 continue;
             }
             if(optionName.equals("Return Book")){
                 System.out.println("Please enter bookName wanted to be returned");
-                Scanner scannerBook=new Scanner(System.in);
-                String bookName=scannerBook.nextLine().trim();
+                String bookName=scanner.nextLine().trim();
                 returnBook(bookName);
                 continue;
             }
             if(optionName.equals("Return Movie")){
                 System.out.println("Please enter movieName wanted to be returned");
-                Scanner scannerMovie=new Scanner(System.in);
-                String movieName=scannerMovie.nextLine().trim();
+                String movieName=scanner.nextLine().trim();
                 returnMovie(movieName);
                 continue;
             }
@@ -173,7 +169,7 @@ public class BibliotecaApp {
         String unSuccessfullMessage="That movie is not available.";
 
         if(biblioteca.avliableMovie(movieName)){
-            for(Movie movie:listMovies()){
+            for(Movie movie:biblioteca.movies){
                 if(movie.getName().equals(movieName)){
                     movie.setCheckouted(true);
                     System.out.println(successfullMessage);
@@ -193,17 +189,16 @@ public class BibliotecaApp {
         String unSuccessfullMessage="That is not a valid movie to return.";
 
         if(!biblioteca.avliableMovie(movieName)){
-            for(Movie movie:listMovies()){
+            for(Movie movie:biblioteca.movies){
                 if(movie.getName().equals(movieName)){
                     movie.setCheckouted(false);
                     System.out.println(successfullMessage);
                     System.out.println();
                     return successfullMessage;
-                }else {
-                    System.out.println(unSuccessfullMessage);
-                    System.out.println();
                 }
             }
+            System.out.println(unSuccessfullMessage);
+            System.out.println();
             return unSuccessfullMessage;
         }else{
             System.out.println(unSuccessfullMessage);
