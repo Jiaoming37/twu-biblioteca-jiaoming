@@ -65,4 +65,9 @@ public class BibliotecaTest {
         assertEquals("Thank you for returning the movie.", BibliotecaApp.returnMovie(movie.getName()));
         assertEquals("That is not a valid movie to return.",BibliotecaApp.returnMovie("wrong name"));
     }
+
+    @Test
+    public void should_have_some_user(){
+        assertNotNull(BibliotecaApp.listUsers());
+    }
 }

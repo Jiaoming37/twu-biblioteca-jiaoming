@@ -206,4 +206,8 @@ public class BibliotecaApp {
             return unSuccessfullMessage;
         }
     }
+
+    public static List<User> listUsers() {
+        return null;
+    }
 }
