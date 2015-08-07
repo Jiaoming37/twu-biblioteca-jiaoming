@@ -32,5 +32,6 @@ public class BibliotecaTest {
     public void should_not_find_the_check_out_book(){
         String bookName=BibliotecaApp.listBooks().get(0).getName();
         assertEquals("Thank you! Enjoy the book",BibliotecaApp.checkOutBook(bookName));
+        assertEquals("That book is not available.",BibliotecaApp.checkOutBook("wrong name"));
     }
 }

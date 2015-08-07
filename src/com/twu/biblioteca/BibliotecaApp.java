@@ -90,7 +90,10 @@ public class BibliotecaApp {
             System.out.println();
             return successfullMessage;
         }else{
-            return null;
+            String unSuccessfullMessage="That book is not available.";
+            System.out.println(unSuccessfullMessage);
+            System.out.println();
+            return unSuccessfullMessage;
         }
     }
 }
