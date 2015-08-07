@@ -152,4 +152,8 @@ public class BibliotecaApp {
         System.out.println();
         return movies;
     }
+
+    public static String checkOutMovie(String movieName) {
+        return null;
+    }
 }

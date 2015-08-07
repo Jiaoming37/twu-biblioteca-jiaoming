@@ -47,4 +47,12 @@ public class BibliotecaTest {
     public void should_have_some_movie(){
         assertNotNull(BibliotecaApp.listMovies());
     }
+
+    @Test
+    public void test_the_check_out_movie_option(){
+        Movie movie=BibliotecaApp.listMovies().get(0);
+        assertEquals("Thank you! Enjoy the movie",BibliotecaApp.checkOutMovie(movie.getName()));
+        assertTrue(movie.getCheckouted());
+        assertEquals("That movie is not available.",BibliotecaApp.checkOutMovie("wrong name"));
+    }
 }
