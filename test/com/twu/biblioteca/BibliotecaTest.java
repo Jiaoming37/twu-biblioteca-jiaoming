@@ -59,8 +59,10 @@ public class BibliotecaTest {
     @Test
     public void test_the_return_movie_option(){
         Movie movie=BibliotecaApp.listMovies().get(0);
-        movie.setCheckouted(true);
-        assertEquals("Thank you for returning the book.", BibliotecaApp.returnMovie(movie.getName()));
-        assertEquals("That is not a valid book to return.",BibliotecaApp.returnMovie("wrong name"));
+        if(!movie.getCheckouted()){
+            movie.setCheckouted(true);
+        }
+        assertEquals("Thank you for returning the movie.", BibliotecaApp.returnMovie(movie.getName()));
+        assertEquals("That is not a valid movie to return.",BibliotecaApp.returnMovie("wrong name"));
     }
 }

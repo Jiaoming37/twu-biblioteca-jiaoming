@@ -185,6 +185,26 @@ public class BibliotecaApp {
     }
 
     public static String returnMovie(String movieName) {
-        return null;
+        String successfullMessage="Thank you for returning the movie.";
+        String unSuccessfullMessage="That is not a valid movie to return.";
+
+        if(!biblioteca.avliableMovie(movieName)){
+            for(Movie movie:listMovies()){
+                if(movie.getName().equals(movieName)){
+                    movie.setCheckouted(false);
+                    System.out.println(successfullMessage);
+                    System.out.println();
+                    return successfullMessage;
+                }else {
+                    System.out.println(unSuccessfullMessage);
+                    System.out.println();
+                }
+            }
+            return unSuccessfullMessage;
+        }else{
+            System.out.println(unSuccessfullMessage);
+            System.out.println();
+            return unSuccessfullMessage;
+        }
     }
 }
