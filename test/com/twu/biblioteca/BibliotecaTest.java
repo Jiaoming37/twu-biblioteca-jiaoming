@@ -2,9 +2,8 @@ package com.twu.biblioteca;
 
 
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+
+import static org.junit.Assert.*;
 
 public class BibliotecaTest {
 
@@ -25,13 +24,22 @@ public class BibliotecaTest {
 
     @Test
     public void should_return_valid_message_if_choose_a_invlid_option(){
-        assertEquals("Select a valid option!",BibliotecaApp.chooseOption("wrong option"));
+        assertEquals("Select a valid option!",BibliotecaApp.listValidMessage());
     }
 
     @Test
-    public void should_not_find_the_check_out_book(){
-        String bookName=BibliotecaApp.listBooks().get(0).getName();
-        assertEquals("Thank you! Enjoy the book",BibliotecaApp.checkOutBook(bookName));
+    public void test_the_check_out_book_option(){
+        Book book=BibliotecaApp.listBooks().get(0);
+        assertEquals("Thank you! Enjoy the book",BibliotecaApp.checkOutBook(book.getName()));
+        assertTrue(book.getCheckOuted());
         assertEquals("That book is not available.",BibliotecaApp.checkOutBook("wrong name"));
+    }
+
+    @Test
+    public void test_the_return_book_option(){
+        Book book=BibliotecaApp.listBooks().get(0);
+        book.setCheckOuted(true);
+        assertEquals("Thank you for returning the book.",BibliotecaApp.returnBook(book.getName()));
+        assertEquals("That is not a valid book to return.",BibliotecaApp.returnBook("wrong name"));
     }
 }

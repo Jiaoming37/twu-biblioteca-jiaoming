@@ -10,21 +10,38 @@ public class BibliotecaApp {
         listWelcomeMessage();
 
         Scanner scanner=new Scanner(System.in);
+
         while (true) {
             listMainMeun();
+
             System.out.println("Please choose the optionName:");
             String optionName = scanner.nextLine().trim();
+
             if(optionName.equals("Quit")){
                 System.out.println("GoodBye!");
                 break;
-            }if(optionName.equals("Checkout Book")){
+            }
+            if(optionName.equals("List Books")){
+                listBooks();
+                continue;
+            }
+            if(optionName.equals("Checkout Book")){
                 listBooks();
                 System.out.println("Please enter bookName wanted to be checkouted");
-                String bookName=scanner.nextLine().trim();
+                Scanner scannerBook=new Scanner(System.in);
+                String bookName=scannerBook.nextLine().trim();
                 checkOutBook(bookName);
+                continue;
+            }
+            if(optionName.equals("Return Book")){
+                System.out.println("Please enter bookName wanted to be returned");
+                Scanner scannerBook=new Scanner(System.in);
+                String bookName=scannerBook.nextLine().trim();
+                returnBook(bookName);
+                continue;
             }
             else{
-                chooseOption(optionName);
+                listValidMessage();
             }
         }
     }
@@ -43,17 +60,20 @@ public class BibliotecaApp {
         System.out.println("bookName"+" || "+"bookAuthor"+" || "+"bookPublishedYear");
         System.out.println("........................................");
         for(Book book:books){
-            System.out.println(book.getName()+"      "+book.getAuthor()+"      "+book.getPublishedYear());
+            if(!book.getCheckOuted()){
+                System.out.println(book.getName()+"      "+book.getAuthor()+"        "+book.getPublishedYear());
+            }
         }
         System.out.println("........................................");
         System.out.println();
         return books;
     }
 
-    public static void listValidMessage(){
+    public static String listValidMessage(){
         String validMessage="Select a valid option!";
         System.out.println(validMessage);
         System.out.println();
+        return validMessage;
     }
 
     public static List<Option> listMainMeun(){
@@ -66,31 +86,48 @@ public class BibliotecaApp {
         return options;
     }
 
-    public static String chooseOption(String optionName){
-        if(optionName.equals("List Books")){
-            listBooks();
-            return "enjoy";
-        }
-        if(optionName.equals("Checkout Book")){
-            listBooks();
-            return "enjoy";
-        }
-        else{
-            listValidMessage();
-            return "Select a valid option!";
+    public static String checkOutBook(String bookName) {
+        String successfullMessage="Thank you! Enjoy the book";
+        String unSuccessfullMessage="That book is not available.";
+
+        int index=biblioteca.hasBook(bookName);
+        if(index>=0){
+            Book book=biblioteca.getBooks().get(index);
+            if(!book.getCheckOuted()){
+                book.setCheckOuted(true);
+                System.out.println(successfullMessage);
+                System.out.println();
+                return successfullMessage;
+            }else{
+                System.out.println(unSuccessfullMessage);
+                System.out.println();
+                return unSuccessfullMessage;
+            }
+        }else{
+            System.out.println(unSuccessfullMessage);
+            System.out.println();
+            return unSuccessfullMessage;
         }
     }
 
-    public static String checkOutBook(String bookName) {
+    public static String returnBook(String bookName) {
+        String successfullMessage="Thank you for returning the book.";
+        String unSuccessfullMessage="That is not a valid book to return.";
+
         int index=biblioteca.hasBook(bookName);
         if(index>=0){
-            biblioteca.getBooks().remove(index);
-            String successfullMessage="Thank you! Enjoy the book";
-            System.out.println(successfullMessage);
-            System.out.println();
-            return successfullMessage;
+            Book book=biblioteca.getBooks().get(index);
+            if(book.getCheckOuted()){
+                book.setCheckOuted(false);
+                System.out.println(successfullMessage);
+                System.out.println();
+                return successfullMessage;
+            }else{
+                System.out.println(unSuccessfullMessage);
+                System.out.println();
+                return unSuccessfullMessage;
+            }
         }else{
-            String unSuccessfullMessage="That book is not available.";
             System.out.println(unSuccessfullMessage);
             System.out.println();
             return unSuccessfullMessage;
