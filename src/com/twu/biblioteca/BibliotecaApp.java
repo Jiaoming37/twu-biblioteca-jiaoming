@@ -52,7 +52,11 @@ public class BibliotecaApp {
                 continue;
             }
             if(optionName.equals("Return Movie")){
-
+                System.out.println("Please enter movieName wanted to be returned");
+                Scanner scannerMovie=new Scanner(System.in);
+                String movieName=scannerMovie.nextLine().trim();
+                returnMovie(movieName);
+                continue;
             }
             else{
                 listValidMessage();
