@@ -10,7 +10,6 @@ public class BibliotecaApp {
         listWelcomeMessage();
 
         Scanner scanner=new Scanner(System.in);
-        listMovies();
         while (true) {
             listMainMeun();
 
@@ -23,6 +22,10 @@ public class BibliotecaApp {
             }
             if(optionName.equals("List Books")){
                 listBooks();
+                continue;
+            }
+            if(optionName.equals("List Movies")){
+                listMovies();
                 continue;
             }
             if(optionName.equals("Checkout Book")){

@@ -18,6 +18,7 @@ public class Biblioteca {
         this.addBook("mysqlsql","json","2014-12-11");
 
         this.addOption("List Books");
+        this.addOption("List Movies");
         this.addOption("Checkout Book");
         this.addOption("Return Book");
         this.addOption("Quit");
