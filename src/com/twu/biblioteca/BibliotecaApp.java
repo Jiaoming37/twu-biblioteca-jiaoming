@@ -52,7 +52,7 @@ public class BibliotecaApp {
                 continue;
             }
             if(optionName.equals("Return Movie")){
-                
+
             }
             else{
                 listValidMessage();
@@ -182,5 +182,9 @@ public class BibliotecaApp {
             System.out.println();
             return unSuccessfullMessage;
         }
+    }
+
+    public static String returnMovie(String movieName) {
+        return null;
     }
 }

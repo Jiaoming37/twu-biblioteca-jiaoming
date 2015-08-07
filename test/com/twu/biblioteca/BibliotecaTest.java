@@ -55,4 +55,12 @@ public class BibliotecaTest {
         assertTrue(movie.getCheckouted());
         assertEquals("That movie is not available.",BibliotecaApp.checkOutMovie("wrong name"));
     }
+
+    @Test
+    public void test_the_return_movie_option(){
+        Movie movie=BibliotecaApp.listMovies().get(0);
+        movie.setCheckouted(true);
+        assertEquals("Thank you for returning the book.", BibliotecaApp.returnMovie(movie.getName()));
+        assertEquals("That is not a valid book to return.",BibliotecaApp.returnMovie("wrong name"));
+    }
 }
