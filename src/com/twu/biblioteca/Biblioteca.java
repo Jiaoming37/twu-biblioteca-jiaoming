@@ -22,6 +22,7 @@ public class Biblioteca {
         this.addOption("Checkout Book");
         this.addOption("Checkout Movie");
         this.addOption("Return Book");
+        this.addOption("Return Movie");
         this.addOption("Quit");
 
         this.addMovie("martial","2009-12-25","chengLo","10");
