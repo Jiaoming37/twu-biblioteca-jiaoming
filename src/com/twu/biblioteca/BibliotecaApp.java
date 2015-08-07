@@ -208,6 +208,7 @@ public class BibliotecaApp {
     }
 
     public static List<User> listUsers() {
-        return null;
+        List<User> userList=biblioteca.users;
+        return userList;
     }
 }

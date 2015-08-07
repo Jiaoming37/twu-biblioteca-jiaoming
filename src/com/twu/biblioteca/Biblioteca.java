@@ -10,6 +10,7 @@ public class Biblioteca {
     public List<Book> books=new ArrayList<Book>();
     public List<Option> mainMenu=new ArrayList<Option>();
     public List<Movie> movies=new ArrayList<Movie>();
+    public List<User> users=new ArrayList<User>();
 
     public Biblioteca(){
         this.addBook("javajava","zhao","2011-12-11");
@@ -29,6 +30,11 @@ public class Biblioteca {
         this.addMovie("comedies","2015-2-15","qingYao","2");
         this.addMovie("tragedy","2014-10-05","heJiong","4");
         this.addMovie("thriller","2015-7-25","jieLun","unrated");
+
+        this.addUser("001-1234","123456");
+        this.addUser("002-1234","123456");
+        this.addUser("003-1234","123456");
+        this.addUser("004-1234","123456");
     }
 
     private void addBook(String name,String author,String publishedYear) {
@@ -46,6 +52,13 @@ public class Biblioteca {
         movie.setDirector(director);
         movie.setRate(rate);
         movies.add(movie);
+    }
+
+    private void addUser(String libraryNumber,String password){
+        User user=new User();
+        user.setLibraryNumber(libraryNumber);
+        user.setPassword(password);
+        users.add(user);
     }
 
     private void addOption(String name){
@@ -104,5 +117,13 @@ public class Biblioteca {
 
     public void setMovies(List<Movie> movies) {
         this.movies = movies;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
