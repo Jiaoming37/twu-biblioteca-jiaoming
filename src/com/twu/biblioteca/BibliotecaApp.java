@@ -144,8 +144,9 @@ public class BibliotecaApp {
         System.out.println("movieName"+" || "+"movieYear"+" || "+"movieDirecor"+" ||  "+"movieRate");
         System.out.println("........................................");
         for(Movie movie:movies){
-            System.out.println(movie.getName()+"      "+movie.getYear()+"        "+movie.getDirector()+"         "+movie.getRate());
-
+            if(!movie.getCheckouted()){
+                System.out.println(movie.getName()+"      "+movie.getYear()+"        "+movie.getDirector()+"         "+movie.getRate());
+            }
         }
         System.out.println("........................................");
         System.out.println();

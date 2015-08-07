@@ -8,15 +8,17 @@ public class Movie {
     private String year;
     private String director;
     private String rate;
+    private Boolean checkouted=false;
 
 
     public Movie(){}
 
-    public Movie(String name,String year,String director,String rate){
+    public Movie(String name,String year,String director,String rate,Boolean checkouted){
         this.name=name;
         this.year=year;
         this.director=director;
         this.rate=rate;
+        this.checkouted=checkouted;
     }
 
     public String getName() {
@@ -49,5 +51,13 @@ public class Movie {
 
     public void setRate(String rate) {
         this.rate = rate;
+    }
+
+    public Boolean getCheckouted() {
+        return checkouted;
+    }
+
+    public void setCheckouted(Boolean checkouted) {
+        this.checkouted = checkouted;
     }
 }
