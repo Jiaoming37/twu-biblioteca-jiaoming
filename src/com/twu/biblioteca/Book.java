@@ -6,6 +6,17 @@ package com.twu.biblioteca;
 public class Book {
     private String name;
     private String author;
+    private String publishedYear;
+
+    public Book(){
+
+    }
+
+    public Book(String name,String author,String publishedYear) {
+        this.name = name;
+        this.author=author;
+        this.publishedYear=publishedYear;
+    }
 
     public String getPublishedYear() {
         return publishedYear;
@@ -14,9 +25,6 @@ public class Book {
     public void setPublishedYear(String publishedYear) {
         this.publishedYear = publishedYear;
     }
-
-    private String publishedYear;
-
 
     public String getName() {
         return name;

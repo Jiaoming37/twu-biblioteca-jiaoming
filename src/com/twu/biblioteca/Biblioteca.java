@@ -11,10 +11,12 @@ public class Biblioteca {
     public List<Option> mainMenu=new ArrayList<Option>();
 
     public Biblioteca(){
-        this.addBook("java","author","2011-12-11");
-        this.addBook("jenkins","author", "2012-12-11");
-        this.addBook("intellij","author", "2013-12-11");
-        this.addBook("mysql","author","2014-12-11");
+        this.addBook("javajava","zhao","2011-12-11");
+        this.addBook("jenkins","lucy", "2012-12-11");
+        this.addBook("intellij","tomi", "2013-12-11");
+        this.addBook("mysqlsql","json","2014-12-11");
+
+        this.addOption("List Books");
     }
 
     private void addBook(String name,String author,String publishedYear) {
@@ -25,5 +27,26 @@ public class Biblioteca {
         books.add(book);
     }
 
+    private void addOption(String name){
+        Option option=new Option();
+        option.setName(name);
+        mainMenu.add(option);
+    }
 
+
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
+    public List<Option> getMainMenu() {
+        return mainMenu;
+    }
+
+    public void setMainMenu(List<Option> mainMenu) {
+        this.mainMenu = mainMenu;
+    }
 }
