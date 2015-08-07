@@ -17,6 +17,8 @@ public class Biblioteca {
         this.addBook("mysqlsql","json","2014-12-11");
 
         this.addOption("List Books");
+        this.addOption("Quit");
+        this.addOption("Checkout Book");
     }
 
     private void addBook(String name,String author,String publishedYear) {
@@ -31,6 +33,21 @@ public class Biblioteca {
         Option option=new Option();
         option.setName(name);
         mainMenu.add(option);
+    }
+
+    private List<String> getBookNameList(){
+        List<String> bookNameList=new ArrayList<String>();
+        for(Book book:books){
+            String bookName=book.getName();
+            bookNameList.add(bookName);
+        }
+        return bookNameList;
+    }
+
+    public int hasBook(String bookName){
+        List<String> nameList=getBookNameList();
+        int index=nameList.indexOf(bookName);
+        return index;
     }
 
 
